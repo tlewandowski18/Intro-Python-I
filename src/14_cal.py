@@ -36,9 +36,18 @@ calendar.setfirstweekday(calendar.SUNDAY)
 
 
 # print(calendar.monthcalendar(int(sys.argv[2]), int(sys.argv[1])))
+now = datetime.now()
+current_month = int(now.strftime("%m"))
+current_year = int(now.strftime("20%y"))
+
 if len(sys.argv) == 1:
-  print(datetime.date(month))
-else:
-  print('false')
+  month = calendar.month(current_year, current_month)
+elif len(sys.argv) == 2:
+  month = calendar.month(current_year, int(sys.argv[1]))
+elif len(sys.argv) == 3:
+  month = calendar.month(int(sys.argv[2]), int(sys.argv[1]))
+
+print(month)
+
 
 
