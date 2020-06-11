@@ -42,12 +42,21 @@ current_year = int(now.strftime("20%y"))
 
 if len(sys.argv) == 1:
   month = calendar.month(current_year, current_month)
+  print(month)
 elif len(sys.argv) == 2:
-  month = calendar.month(current_year, int(sys.argv[1]))
+  if 0 < sys.argv[1] <= 12:
+    month = calendar.month(current_year, int(sys.argv[1]))
+    print(month)
+  else:
+    print("Please enter a valid month")
 elif len(sys.argv) == 3:
-  month = calendar.month(int(sys.argv[2]), int(sys.argv[1]))
+  if 0 < int(sys.argv[1]) <= 12:
+    month = calendar.month(int(sys.argv[2]), int(sys.argv[1]))
+    print(month)
+  else:
+    print("Please enter a valid month")
+   
 
-print(month)
 
 
 
